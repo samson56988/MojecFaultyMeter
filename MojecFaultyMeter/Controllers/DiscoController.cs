@@ -87,6 +87,8 @@ namespace MojecFaultyMeter.Controllers
                     cmd.Parameters.AddWithValue("@Fault", faulty.Fault);
                     cmd.Parameters.AddWithValue("@DiscoUserID", DiscoUserID);
                     cmd.Parameters.AddWithValue("@FaultyComment", faulty.Faultcomment);
+                    cmd.Parameters.AddWithValue("@WorkOrderType", faulty.WorkorderType);
+                    cmd.Parameters.AddWithValue("@DateRecieved", DateTime.Now);
                     if (con.State != System.Data.ConnectionState.Open)
 
                         con.Open();

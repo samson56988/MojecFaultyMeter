@@ -56,6 +56,12 @@ namespace MojecFaultyMeter.Models
         public string UserID { get; set; }
         [Display(Name = "Rejection Comment")]
         public string Rejectcomment { get; set; }
+
+        [Display(Name = "Workorder Type")]
+        public string WorkorderType { get; set; }
+
+        public DateTime Daterecieved { get; set; }
+
         Random random = new Random();
 
         public FaultyMeters()
