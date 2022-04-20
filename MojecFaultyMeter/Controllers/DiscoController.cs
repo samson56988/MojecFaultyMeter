@@ -515,7 +515,21 @@ namespace MojecFaultyMeter.Controllers
 
 
                 }
-                string Email = "";
+
+                using (SqlCommand cmd10 = new SqlCommand("Update FaultyMeters set Status= 'Solved' where Resolved = 'Yes'", con))
+
+                {
+                    cmd10.CommandType = CommandType.Text;
+                    if (con.State != System.Data.ConnectionState.Open)
+
+                        con.Open();
+                    cmd10.ExecuteNonQuery();
+
+
+                }
+
+                    string Email = "";
+
                 using (SqlCommand cmd4 = new SqlCommand("select * from MojecStoreUser",con))
                 {
                     SqlDataReader dr = cmd4.ExecuteReader();
@@ -824,6 +838,8 @@ namespace MojecFaultyMeter.Controllers
             objbulk.ColumnMappings.Add("DiscoID", "DiscoID");
             objbulk.ColumnMappings.Add("DiscoUserID", "DiscoUserID");
             objbulk.ColumnMappings.Add("WorkOrderType", "WorkOrderType");
+            objbulk.ColumnMappings.Add("FieldEngineer ", "FieldEngineer");
+            objbulk.ColumnMappings.Add("Resolved ", "Resolved");
             con.Open();
             objbulk.WriteToServer(dt);
             con.Close();
