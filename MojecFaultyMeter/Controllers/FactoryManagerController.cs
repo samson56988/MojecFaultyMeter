@@ -67,7 +67,7 @@ namespace MojecFaultyMeter.Controllers
 
             using (SqlConnection con = new SqlConnection(StoreConnection.GetConnection()))
             {
-                SqlCommand cmd = new SqlCommand("-", con);
+                SqlCommand cmd = new SqlCommand("GetReplacementApprovalmetersforAdmin", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 con.Open();
